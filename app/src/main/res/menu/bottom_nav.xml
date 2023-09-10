@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/home_icon"
+        tools:ignore="ExtraText"
+        android:id="@+id/navigation_home"
+        android:title="Home"
+        />
+    <item
+        android:id="@+id/navigation_cart"
+         android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:title="My Cart"
+        />
+    <item
+        android:id="@+id/navigation_notifications"
+        android:title="Notifications"
+        android:icon="@drawable/notifications_icon"
+        />
+    <item android:title="Profile"
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/account_icon"
+        />
+</menu>
