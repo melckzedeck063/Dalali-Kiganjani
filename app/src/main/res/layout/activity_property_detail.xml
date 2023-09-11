@@ -4,23 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="1dp">
+    >
 
     <!-- Property Image -->
-    <androidx.cardview.widget.CardView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="5dp"
         android:id="@+id/image_cont"
-        app:cardCornerRadius="15dp"
-        >
-        <ImageView
-            android:id="@+id/property_image"
+        android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="420dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/house2" />
-    </androidx.cardview.widget.CardView>
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_image"
+            android:elevation="5dp"
+            android:id="@+id/image_card"
+            >
+            <ImageView
+                android:id="@+id/property_image"
+                android:layout_width="match_parent"
+                android:layout_height="420dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/house2" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:background="@color/white"
+            android:padding="6dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="100dp"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bed_icon"
+                />
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
 
 
     <!-- Property Name -->
@@ -94,7 +118,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/property_name"
             android:layout_toRightOf="@+id/location_icon"
-            android:layout_marginStart="14dp"
+            android:layout_marginStart="104dp"
             android:text="Available"
             android:textColor="@color/teal_700"
             android:gravity="end"
@@ -126,7 +150,7 @@
                  android:layout_width="25dp"
                  android:scaleType="centerCrop"
                  android:layout_height="25dp"
-                 android:src="@drawable/ic_baseline_location_on_24" />
+                 android:src="@drawable/bed_icon" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -148,7 +172,7 @@
                 android:layout_width="25dp"
                 android:scaleType="centerCrop"
                 android:layout_height="25dp"
-                android:src="@drawable/ic_baseline_location_on_24" />
+                android:src="@drawable/bathroom_icon" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -170,7 +194,7 @@
                 android:layout_width="25dp"
                 android:scaleType="centerCrop"
                 android:layout_height="25dp"
-                android:src="@drawable/ic_baseline_location_on_24" />
+                android:src="@drawable/parking_icon" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
