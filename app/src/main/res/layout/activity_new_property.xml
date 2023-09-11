@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    tools:context=".NewPropertyActivity">
+
+    <!-- Property Name -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/property_name_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Property Name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/property_name_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Price -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/price_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price (e.g., 1000 USD/month)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/price_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Payment Duration -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/payment_duration_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Payment Duration (e.g., 12 months)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/payment_duration_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Location -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/location_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Location">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/location_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Bedrooms No -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bedrooms_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Bedrooms No">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bedrooms_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLines="1"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Bathrooms No -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bathrooms_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Bathrooms No">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bathrooms_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLines="1"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Parking No -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/parking_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Parking No">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/parking_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLines="1"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Description -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/description_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/description_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:lines="3"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Register Button -->
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>
+

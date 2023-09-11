@@ -76,6 +76,9 @@ public class HomeActivity extends AppCompatActivity {
 //                                drawerLayout.closeDrawer(GravityCompat.START);
                         Toast.makeText(HomeActivity.this, "SETTINGS MENU CALLED", Toast.LENGTH_SHORT).show();
                         break;
+                    case R.id.new_prop:
+                        startActivity(new Intent(HomeActivity.this, NewPropertyActivity.class));
+                        break;
                     // Add more cases for other menu items
                     default:
                         throw new IllegalStateException("Unexpected value: " + item.getItemId());

@@ -14,7 +14,7 @@
          <menu>
              <item android:id="@+id/new_prop"
                  android:title="New Property"
-                 android:icon="@drawable/account_icon" />
+                 android:icon="@drawable/add_icon" />
              <item android:icon="@drawable/home_icon"
                  android:id="@+id/all_props"
                  android:title="All Properties" />
