@@ -24,10 +24,7 @@ public class HomeFragment extends Fragment {
         View view  = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView =  view.findViewById(R.id.recycler_view2);
 
-
         createProperty();
-
-
 
         return view;
     }

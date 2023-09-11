@@ -61,22 +61,16 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view2"
                     android:layout_width="match_parent"
-                    android:layout_height="540dp"
+                    android:layout_height="match_parent"
                     android:layout_marginHorizontal="1dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginBottom="30dp"
                     android:background="@drawable/recycler_bg"
-                    android:paddingHorizontal="10dp"
+                    android:paddingHorizontal="5dp"
                     tools:listitem="@layout/property"
                     android:paddingTop="10dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:text="Hello Wolrd"
-                    android:layout_gravity="center"
-                    />
+
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

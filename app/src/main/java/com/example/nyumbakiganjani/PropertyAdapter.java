@@ -2,6 +2,7 @@ package com.example.nyumbakiganjani;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +50,18 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.MyView
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "You have clicked " + propertyArrayList.get(position).getProperty(), Toast.LENGTH_SHORT).show();
+
+                Intent intent =  new Intent(context, PropertyDetailActivity.class);
+
+                intent.putExtra("property", propertyArrayList.get(position).getProperty());
+                intent.putExtra("location", propertyArrayList.get(position).getLocation());
+                intent.putExtra("price", propertyArrayList.get(position).getPrice());
+                intent.putExtra("duration", propertyArrayList.get(position).getDuration());
+                intent.putExtra("image", propertyArrayList.get(position).getImage());
+                intent.putExtra("rooms", propertyArrayList.get(position).getRooms());
+                intent.putExtra("description", propertyArrayList.get(position).getDescription());
+
+                context.startActivity(intent);
             }
         });
     }

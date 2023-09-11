@@ -1,192 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+app:cardCornerRadius="8dp"
+app:cardElevation="4dp"
+app:cardUseCompatPadding="true"
+android:layout_margin="8dp">
+
+<RelativeLayout
     android:layout_width="match_parent"
-    android:elevation="8dp"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="5dp">
+    android:padding="10dp">
 
-    <FrameLayout
-        android:layout_width="397dp"
-        android:layout_height="299dp"
-        android:layout_marginHorizontal="10dp"
+    <!-- Property Image -->
+    <ImageView
+        android:id="@+id/image_item"
+        android:layout_width="140dp"
+        android:layout_height="120dp"
+        android:src="@mipmap/house2"
+        android:scaleType="centerCrop"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true" />
+
+    <!-- Property Name -->
+
+    <!-- Property Location -->
+    <TextView
+        android:id="@+id/desc_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@id/image_item"
+        android:text="Property Name"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/location_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/desc_text"
+        android:layout_toEndOf="@id/image_item"
+        android:layout_marginStart="24dp"
+        android:text="Property Location"
+        android:textSize="14sp"
+        android:textColor="@color/teal_700"
+        android:layout_marginTop="4dp" />
+
+    <!-- Property Price -->
+
+    <TextView
+        android:id="@+id/price_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/location_text"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="7dp"
+        android:layout_toEndOf="@id/image_item"
+        android:text="Property Price"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/pay_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/price_text"
+        android:layout_toEndOf="@id/image_item"
+        android:layout_marginStart="24dp"
+        android:text="Pay Duration"
+        android:textSize="14sp"
+        android:textColor="@color/teal_700"
+        android:layout_marginTop="4dp" />
+
+    <!-- Property Status -->
+    <LinearLayout
+        android:layout_width="213dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/pay_duration"
         android:layout_marginTop="5dp"
-        android:background="@drawable/custom_card"
-        android:elevation="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_toEndOf="@id/image_item">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/status_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="1dp"
-            android:padding="2dp">
+            android:layout_below="@id/price_text"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="1dp"
+            android:layout_toEndOf="@id/image_item"
+            android:text="Property Status"
+            android:textColor="@color/teal_700"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/status_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/price_text"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="1dp"
+            android:layout_toEndOf="@id/image_item"
+            android:text="Rooms"
+            android:textColor="@color/teal_700"
+            android:textSize="14sp" />
+    </LinearLayout>
 
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="4dp"
-                android:layout_marginTop="4dp"
-                android:elevation="8dp"
-                app:cardCornerRadius="15dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+</RelativeLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.5">
-
-                        <ImageView
-                            android:id="@+id/image_item"
-                            android:layout_width="match_parent"
-                            android:layout_height="200dp"
-                            android:scaleType="centerCrop"
-                            android:src="@mipmap/house2" />
-
-                        <TextView
-                            android:layout_width="106dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginStart="272dp"
-                            android:layout_marginTop="7dp"
-                            android:layout_marginEnd="1dp"
-                            android:background="@drawable/custom_banner"
-                            android:paddingVertical="4dp"
-                            android:paddingLeft="12dp"
-                            android:text="For Rent"
-                            android:textColor="@color/white"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:orientation="horizontal"
-                android:paddingVertical="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView2">
-
-                <TextView
-                    android:id="@+id/location_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kilimani Dodoma"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginHorizontal="5dp"
-                    android:src="@mipmap/house2" />
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginHorizontal="5dp"
-                    android:src="@mipmap/house2" />
-
-                <!--                <ImageView-->
-                <!--                    android:layout_width="30dp"-->
-                <!--                    android:layout_height="30dp"-->
-                <!--                    android:layout_marginHorizontal="5dp"-->
-                <!--                    android:src="@mipmap/house1" />-->
-
-                <TextView
-                    android:id="@+id/price_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="120k/Month"
-                    android:textColor="@color/teal_700"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:paddingVertical="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.443"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-                <TextView
-                    android:id="@+id/desc_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:text="Self contained room"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="299dp" />
-
-                <TextView
-                    android:id="@+id/pay_duration"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="3/6 Months"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="299dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="Available"
-                    android:id="@+id/status_text"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="299dp" />
-
-            </LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </FrameLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void navigateRegister(View view){
-        Intent intent =  new Intent(MainActivity.this, HomeActivity.class);
+        Intent intent =  new Intent(MainActivity.this, RegisterActivity.class);
         startActivity(intent);
     }
 }

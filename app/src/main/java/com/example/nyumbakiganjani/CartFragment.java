@@ -26,27 +26,9 @@ public class CartFragment extends Fragment {
         View view  = inflater.inflate(R.layout.fragment_cart, container, false);
          recyclerView =  view.findViewById(R.id.recycler_view3);
 
-         createProperty();
 
         return view;
     }
 
-    private void createProperty(){
-        propertyArrayList =  new ArrayList<>();
-        propertyArrayList.add(new Property("House for rent", "280K/Month", "3/6 Months", "Iyumbu Dodoma", "", 1,R.mipmap.house1,4));
-        propertyArrayList.add(new Property("Room for rent", "80K/Month", "3/6 Months", "Kikuyu Dodoma", "", 1,R.mipmap.house2,4));
-        propertyArrayList.add(new Property("House for rent", "280K/Month", "3/6 Months", "Makulu Dodoma", "", 1,R.mipmap.house3,4));
-        propertyArrayList.add(new Property("House for rent", "200K/Month", "3/6 Months", "Area C Dodoma", "", 1,R.mipmap.house1,4));
-        propertyArrayList.add(new Property("House for rent", "250K/Month", "3/6 Months", "Nzuguni Dodoma", "", 1,R.mipmap.house2,4));
-        propertyArrayList.add(new Property("House for rent", "280K/Month", "3/6 Months", "Iyumbo Dodoma", "", 1,R.mipmap.house3,4));
-        propertyArrayList.add(new Property("House for rent", "280K/Month", "3/6 Months", "Iyumbu Dodoma", "", 1,R.mipmap.house1,4));
-        propertyArrayList.add(new Property("Room for rent", "80K/Month", "3/6 Months", "Kikuyu Dodoma", "", 1,R.mipmap.house2,4));
-        propertyArrayList.add(new Property("House for rent", "280K/Month", "3/6 Months", "Makulu Dodoma", "", 1,R.mipmap.house3,4));
 
-        propertyAdapter =  new PropertyAdapter(propertyArrayList, getContext());
-        recyclerView.setAdapter(propertyAdapter);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
-        recyclerView.setNestedScrollingEnabled(false);
-    }
 }

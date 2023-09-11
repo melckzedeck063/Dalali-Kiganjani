@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="1dp">
+
+    <!-- Property Image -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:id="@+id/image_cont"
+        app:cardCornerRadius="15dp"
+        >
+        <ImageView
+            android:id="@+id/property_image"
+            android:layout_width="match_parent"
+            android:layout_height="420dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/house2" />
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- Property Name -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/header_cont"
+        android:layout_below="@id/image_cont"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="16dp"
+        >
+        <TextView
+            android:id="@+id/property_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Property Name"
+            android:layout_marginStart="2dp"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="2dp" />
+
+           <TextView
+                    android:id="@+id/property_price"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="80000"
+                    android:paddingRight="8dp"
+                    android:gravity="end"
+                    android:layout_marginStart="3dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/teal_700" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/location_cont"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/header_cont"
+        android:layout_marginHorizontal="10dp"
+        >
+        <!-- Location Icon -->
+        <ImageView
+            android:id="@+id/location_icon"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="2dp"
+            android:layout_below="@+id/property_name"
+            android:src="@drawable/ic_baseline_location_on_24"
+            android:layout_marginTop="4dp" />
+
+        <!-- Property Location -->
+        <TextView
+            android:id="@+id/property_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/property_name"
+            android:layout_toRightOf="@+id/location_icon"
+            android:layout_marginStart="14dp"
+            android:text="Nzuguni Dodoma"
+            android:textSize="18sp"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:id="@+id/property_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/property_name"
+            android:layout_toRightOf="@+id/location_icon"
+            android:layout_marginStart="14dp"
+            android:text="Available"
+            android:textColor="@color/teal_700"
+            android:gravity="end"
+            android:textSize="18sp"
+            android:layout_marginTop="2dp" />
+
+
+    </LinearLayout>
+
+
+    <!-- Price and Status -->
+    <LinearLayout
+        android:id="@+id/specs_cont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_below="@+id/location_cont"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:background="@drawable/grey_container"
+            android:layout_marginStart="5dp"
+            android:paddingVertical="3dp"
+            android:paddingHorizontal="5dp"
+            android:layout_height="wrap_content">
+             <ImageView
+                 android:layout_width="25dp"
+                 android:scaleType="centerCrop"
+                 android:layout_height="25dp"
+                 android:src="@drawable/ic_baseline_location_on_24" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="4 Bedrooms"
+                android:textSize="16dp"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:background="@drawable/grey_container"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="3dp"
+            android:layout_marginStart="6dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="25dp"
+                android:scaleType="centerCrop"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_baseline_location_on_24" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="2 Bathrooms"
+                android:textSize="16dp"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:background="@drawable/grey_container"
+            android:paddingVertical="3dp"
+            android:paddingHorizontal="7dp"
+            android:layout_marginStart="6dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="25dp"
+                android:scaleType="centerCrop"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_baseline_location_on_24" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="1 Parking"
+                android:textSize="16dp"
+
+                />
+        </LinearLayout>
+
+
+
+        <!-- Property Status -->
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        android:id="@+id/desc_header"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_below="@+id/specs_cont"
+        />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/desc_header"
+        android:layout_marginStart="12dp"
+        android:text="design a property detail screen where the image, name, location, price, and status ,rooms, description or renting conditions"
+        android:textSize="18sp"
+        android:layout_marginTop="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/payment_cont"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_below="@+id/description"
+        >
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/description"
+            android:text="Payment Duration"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="6dp" />
+
+        <!-- Owner Telephone -->
+        <TextView
+            android:id="@+id/payment_mode"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/owner_name"
+            android:text="6 Months / Annualy"
+            android:gravity="end"
+            android:textSize="16sp"
+            android:textColor="@color/teal_700"
+            android:layout_marginTop="6dp" />
+
+    </LinearLayout>
+    <!-- Owner Name -->
+
+
+
+    <!-- Chat Button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_below="@+id/payment_cont"
+        android:layout_marginTop="15dp"
+        >
+        <Button
+            android:id="@+id/chat_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Chat with Owner" />
+
+        <!-- Book Button -->
+        <Button
+            android:id="@+id/book_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="50dp"
+            android:text="Book Now" />
+    </LinearLayout>
+
+
+</RelativeLayout>
