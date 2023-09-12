@@ -1,30 +1,52 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:orientation="vertical">
+    android:background="@drawable/custom_bg"
+    android:orientation="vertical"
+    android:padding="14dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
         android:layout_gravity="center_vertical"
+        android:layout_marginHorizontal="10dp"
         android:elevation="4dp"
         android:padding="16dp"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        card_view:cardCornerRadius="15dp">
+        card_view:cardCornerRadius="15dp"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintHorizontal_bias="0.5"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent"
+        card_view:layout_constraintVertical_bias="0.5">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="15dp"
             android:orientation="vertical">
 
             <!-- Property Name -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Register New Property"
+                android:textColor="@color/teal_700"
+                android:textStyle="bold"
+                android:textSize="24dp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                />
             <EditText
                 android:id="@+id/editPropertyName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_height="45dp"
+                android:paddingHorizontal="4dp"
+                android:background="@drawable/custom_input"
                 android:hint="Property Name"
                 android:inputType="text" />
 
@@ -32,7 +54,10 @@
             <EditText
                 android:id="@+id/editLocation"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
+                android:paddingHorizontal="4dp"
+                android:background="@drawable/custom_input"
+                android:layout_marginTop="8dp"
                 android:hint="Location"
                 android:inputType="text" />
 
@@ -40,23 +65,48 @@
             <EditText
                 android:id="@+id/editPrice"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
+                android:paddingHorizontal="4dp"
+                android:background="@drawable/custom_input"
+                android:layout_marginTop="8dp"
                 android:hint="Price"
                 android:inputType="numberDecimal" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:src="@android:drawable/ic_menu_gallery" />
 
+            <Button
+                android:layout_width="match_parent"
+                android:id="@+id/editImage"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/teal_700"
+                android:text="Upload Image"
+                android:textColor="#FFFFFF" />
             <!-- Bedrooms -->
             <EditText
                 android:id="@+id/editBedrooms"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
+                android:paddingHorizontal="5dp"
+                android:background="@drawable/custom_input"
+                android:layout_marginTop="8dp"
                 android:hint="Bedrooms"
                 android:inputType="number" />
+
 
             <!-- Bathrooms -->
             <EditText
                 android:id="@+id/editBathrooms"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
+                android:paddingHorizontal="4dp"
+                android:background="@drawable/custom_input"
+                android:layout_marginTop="8dp"
                 android:hint="Bathrooms"
                 android:inputType="number" />
 
@@ -64,7 +114,10 @@
             <EditText
                 android:id="@+id/editParking"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
+                android:paddingHorizontal="5dp"
+                android:background="@drawable/custom_input"
+                android:layout_marginTop="8dp"
                 android:hint="Parking"
                 android:inputType="text" />
 
@@ -72,7 +125,10 @@
             <EditText
                 android:id="@+id/editPaymentDuration"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
+                android:paddingHorizontal="4dp"
+                android:background="@drawable/custom_input"
+                android:layout_marginTop="8dp"
                 android:hint="Payment Duration (in months)"
                 android:inputType="number" />
 
@@ -81,19 +137,23 @@
                 android:id="@+id/editDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="top"
+                android:padding="5dp"
+                android:background="@drawable/custom_input"
                 android:hint="Description"
                 android:inputType="textMultiLine"
-                android:minLines="3"
-                android:gravity="top" />
+                android:minLines="3" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Register Property"
-                android:layout_marginTop="16dp"
+                android:id="@+id/submit_btn"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="@color/teal_700"
+                android:text="Register Property"
                 android:textColor="#FFFFFF" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

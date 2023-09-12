@@ -21,7 +21,7 @@
             <ImageView
                 android:id="@+id/property_image"
                 android:layout_width="match_parent"
-                android:layout_height="420dp"
+                android:layout_height="400dp"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/house2" />
         </androidx.cardview.widget.CardView>
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/header_cont"
         android:layout_below="@id/image_cont"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="15dp"
         android:layout_marginTop="16dp"
         >
         <TextView
@@ -88,7 +88,7 @@
         android:id="@+id/location_cont"
         android:layout_marginTop="2dp"
         android:layout_below="@+id/header_cont"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="15dp"
         >
         <!-- Location Icon -->
         <ImageView
@@ -134,7 +134,7 @@
         android:id="@+id/specs_cont"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
+        android:layout_marginHorizontal="15dp"
         android:layout_below="@+id/location_cont"
         android:orientation="horizontal"
         android:layout_marginTop="24dp">
@@ -147,7 +147,7 @@
             android:paddingHorizontal="5dp"
             android:layout_height="wrap_content">
              <ImageView
-                 android:layout_width="25dp"
+                 android:layout_width="20dp"
                  android:scaleType="centerCrop"
                  android:layout_height="25dp"
                  android:src="@drawable/bed_icon" />
@@ -169,7 +169,7 @@
             android:layout_marginStart="6dp"
             android:layout_height="wrap_content">
             <ImageView
-                android:layout_width="25dp"
+                android:layout_width="20dp"
                 android:scaleType="centerCrop"
                 android:layout_height="25dp"
                 android:src="@drawable/bathroom_icon" />
@@ -191,7 +191,7 @@
             android:layout_marginStart="6dp"
             android:layout_height="wrap_content">
             <ImageView
-                android:layout_width="25dp"
+                android:layout_width="20dp"
                 android:scaleType="centerCrop"
                 android:layout_height="25dp"
                 android:src="@drawable/parking_icon" />
@@ -215,7 +215,7 @@
         android:layout_height="wrap_content"
         android:text="Description"
         android:layout_marginTop="15dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="18dp"
         android:id="@+id/desc_header"
         android:textColor="@color/black"
         android:textSize="20dp"
@@ -228,7 +228,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/desc_header"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="18dp"
         android:text="design a property detail screen where the image, name, location, price, and status ,rooms, description or renting conditions"
         android:textSize="18sp"
         android:layout_marginTop="12dp" />
@@ -238,7 +238,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/payment_cont"
         android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="15dp"
         android:layout_below="@+id/description"
         >
         <TextView
