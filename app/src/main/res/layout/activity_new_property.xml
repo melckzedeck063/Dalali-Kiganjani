@@ -1,141 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp"
-    android:background="@android:color/white"
-    tools:context=".NewPropertyActivity">
+    android:orientation="vertical">
 
-    <!-- Property Name -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/property_name_layout"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Property Name">
+        android:layout_marginHorizontal="10dp"
+        android:layout_gravity="center_vertical"
+        android:elevation="4dp"
+        android:padding="16dp"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        card_view:cardCornerRadius="15dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/property_name_edittext"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLines="1"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical">
 
-    <!-- Price -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/price_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Price (e.g., 1000 USD/month)">
+            <!-- Property Name -->
+            <EditText
+                android:id="@+id/editPropertyName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Property Name"
+                android:inputType="text" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/price_edittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLines="1"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            <!-- Location -->
+            <EditText
+                android:id="@+id/editLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Location"
+                android:inputType="text" />
 
-    <!-- Payment Duration -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/payment_duration_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Payment Duration (e.g., 12 months)">
+            <!-- Price -->
+            <EditText
+                android:id="@+id/editPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Price"
+                android:inputType="numberDecimal" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/payment_duration_edittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLines="1"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            <!-- Bedrooms -->
+            <EditText
+                android:id="@+id/editBedrooms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Bedrooms"
+                android:inputType="number" />
 
-    <!-- Location -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/location_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Location">
+            <!-- Bathrooms -->
+            <EditText
+                android:id="@+id/editBathrooms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Bathrooms"
+                android:inputType="number" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/location_edittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLines="1"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            <!-- Parking -->
+            <EditText
+                android:id="@+id/editParking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Parking"
+                android:inputType="text" />
 
-    <!-- Bedrooms No -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/bedrooms_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Bedrooms No">
+            <!-- Payment Duration -->
+            <EditText
+                android:id="@+id/editPaymentDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Payment Duration (in months)"
+                android:inputType="number" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/bedrooms_edittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:maxLines="1"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            <!-- Description -->
+            <EditText
+                android:id="@+id/editDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:gravity="top" />
 
-    <!-- Bathrooms No -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/bathrooms_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Bathrooms No">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register Property"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/teal_700"
+                android:textColor="#FFFFFF" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/bathrooms_edittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:maxLines="1"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <!-- Parking No -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/parking_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Parking No">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/parking_edittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:maxLines="1"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <!-- Description -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/description_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Description">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/description_edittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:lines="3"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <!-- Register Button -->
-    <Button
-        android:id="@+id/register_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:layout_marginTop="16dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>
-
