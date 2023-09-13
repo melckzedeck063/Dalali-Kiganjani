@@ -1,8 +1,5 @@
 package com.example.nyumbakiganjani;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -67,29 +66,35 @@ public class RegisterActivity extends AppCompatActivity {
         if(fname.isEmpty()){
             firstname.setError("Firstname is required");
             firstname.requestFocus();
+            return;
         }
         if(lname.isEmpty()){
             lastname.setError("Lastname is required");
             lastname.requestFocus();
+            return;
         }
 
         if(email.isEmpty()){
             email_address.setError("Email address is required");
             email_address.requestFocus();
+            return;
         }
         if(phone.isEmpty()){
             telephone.setError("Telephone is required");
             telephone.requestFocus();
+            return;
         }
 
         if(password.isEmpty()){
             passcode.setError("Passcode is required");
             passcode.requestFocus();
+            return;
+        }
 
-            if(password.length() < 8 ){
-                passcode.setError("Password must contain atleast 8 characters ");
-                passcode.requestFocus();
-            }
+        if(password.length() < 8 ){
+            passcode.setError("Password must contain atleast 8 characters ");
+            passcode.requestFocus();
+            return;
         }
 
         StringRequest stringRequest =  new StringRequest(Request.Method.POST, RegisterURL,
@@ -151,7 +156,9 @@ public class RegisterActivity extends AppCompatActivity {
                 params.put("lastname", lname);
                 params.put("username", email);
                 params.put("phone", phone);
+                params.put("role", "customer");
                 params.put("password", password);
+
                 return  params;
             }
         };
