@@ -7,7 +7,7 @@ public class SharedPreferenceHelper {
    private SharedPreferences sharedPreferences;
    private Context context;
    private String firstname = "firstname",lastname="lastname",username = "username",phone="phone", role="role", id="id";
-
+   private String  imageName="imageName";
     public SharedPreferenceHelper(Context context){
         this.sharedPreferences = context.getSharedPreferences("login_session",Context.MODE_PRIVATE);
         this.context = context;
@@ -35,6 +35,10 @@ public class SharedPreferenceHelper {
 
     public int getId() {
         return sharedPreferences.getInt(id, 0);
+    }
+
+    public String getImageName(){
+        return  sharedPreferences.getString("imageName", "");
     }
 
     public void setFirstname(String firstname) {
@@ -72,6 +76,12 @@ public class SharedPreferenceHelper {
     public void  setId(int id){
         SharedPreferences.Editor editor =  sharedPreferences.edit();
         editor.putInt(this.id, id);
+        editor.commit();
+    }
+
+    public void setImageName(String imageName){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(this.imageName,imageName);
         editor.commit();
     }
 }
