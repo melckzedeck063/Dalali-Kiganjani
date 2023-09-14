@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginHorizontal="10dp"
+        android:background="@color/white"
         android:elevation="4dp"
         android:padding="16dp"
         card_view:cardCornerRadius="15dp"
@@ -44,6 +45,9 @@
                 android:id="@+id/editPropertyName"
                 android:layout_width="match_parent"
                 android:layout_marginTop="10dp"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:layout_height="45dp"
                 android:paddingHorizontal="4dp"
                 android:background="@drawable/custom_input"
@@ -56,6 +60,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:paddingHorizontal="4dp"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:background="@drawable/custom_input"
                 android:layout_marginTop="8dp"
                 android:hint="Location"
@@ -66,11 +73,14 @@
                 android:id="@+id/editPrice"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:textSize="18dp"
+                android:textColor="@color/black"
                 android:paddingHorizontal="4dp"
+                android:textColorHint="@color/black"
                 android:background="@drawable/custom_input"
                 android:layout_marginTop="8dp"
                 android:hint="Price"
-                android:inputType="numberDecimal" />
+                android:inputType="text" />
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
@@ -101,11 +111,14 @@
                 android:id="@+id/editBedrooms"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:textSize="18dp"
+                android:textColor="@color/black"
                 android:paddingHorizontal="5dp"
+                android:textColorHint="@color/black"
                 android:background="@drawable/custom_input"
                 android:layout_marginTop="8dp"
-                android:hint="Bedrooms"
-                android:inputType="number" />
+                android:hint="eg 3 Bedrooms"
+                android:inputType="text" />
 
 
             <!-- Bathrooms -->
@@ -114,10 +127,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:paddingHorizontal="4dp"
+                android:textColorHint="@color/black"
                 android:background="@drawable/custom_input"
                 android:layout_marginTop="8dp"
-                android:hint="Bathrooms"
-                android:inputType="number" />
+                android:hint=" eg 2 Bathrooms"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:inputType="text" />
 
             <!-- Parking -->
             <EditText
@@ -125,9 +141,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:paddingHorizontal="5dp"
+                android:textColorHint="@color/black"
                 android:background="@drawable/custom_input"
                 android:layout_marginTop="8dp"
-                android:hint="Parking"
+                android:hint="eg 1 Parking"
+                android:textColor="@color/black"
+                android:textSize="18dp"
                 android:inputType="text" />
 
             <!-- Payment Duration -->
@@ -136,10 +155,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:paddingHorizontal="4dp"
+                android:textColorHint="@color/black"
                 android:background="@drawable/custom_input"
                 android:layout_marginTop="8dp"
-                android:hint="Payment Duration (in months)"
-                android:inputType="number" />
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:hint=" eg 3/6 Months"
+                android:inputType="text" />
 
             <!-- Description -->
             <EditText
@@ -148,9 +170,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="top"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:padding="5dp"
                 android:background="@drawable/custom_input"
                 android:hint="Description"
+                android:textSize="18dp"
                 android:inputType="textMultiLine"
                 android:minLines="3" />
 

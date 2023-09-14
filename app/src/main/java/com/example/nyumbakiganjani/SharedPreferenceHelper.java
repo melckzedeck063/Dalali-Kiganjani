@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 public class SharedPreferenceHelper {
    private SharedPreferences sharedPreferences;
    private Context context;
-   private String firstname = "firstname",lastname="lastname",username = "username",phone="phone", role="role";
+   private String firstname = "firstname",lastname="lastname",username = "username",phone="phone", role="role", id="id";
 
     public SharedPreferenceHelper(Context context){
         this.sharedPreferences = context.getSharedPreferences("login_session",Context.MODE_PRIVATE);
@@ -31,6 +31,10 @@ public class SharedPreferenceHelper {
 
     public String getRole() {
         return sharedPreferences.getString(role,"");
+    }
+
+    public int getId() {
+        return sharedPreferences.getInt(id, 0);
     }
 
     public void setFirstname(String firstname) {
@@ -62,6 +66,12 @@ public class SharedPreferenceHelper {
     public void setRole(String role) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(this.role, role);
+        editor.commit();
+    }
+
+    public void  setId(int id){
+        SharedPreferences.Editor editor =  sharedPreferences.edit();
+        editor.putInt(this.id, id);
         editor.commit();
     }
 }

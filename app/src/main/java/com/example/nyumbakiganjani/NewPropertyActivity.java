@@ -17,6 +17,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
@@ -29,11 +32,15 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class NewPropertyActivity extends AppCompatActivity {
 
-    EditText propertyName, propertyLocation, getPropertyPrice, bedrooms,bathrooms,parking,duration,propertyDescription;
+    EditText propertyName, propertyLocation, propertyPrice, bedroomsNo,bathroomsNo,parkingNo,payduration,propertyDescription;
     Button uploadBtn, submitBtn;
     ImageView imageView;
     private static final int GALLERY_REQUEST_CODE = 123;
     private ProgressBar  progressBar;
+    private SharedPreferenceHelper sharedPreferenceHelper;
+    int loged_user  =0;
+    private RequestQueue requestQueue;
+    private StringRequest stringRequest;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -41,13 +48,16 @@ public class NewPropertyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_property);
 
+        sharedPreferenceHelper =  new SharedPreferenceHelper(this);
+        loged_user = sharedPreferenceHelper.getId();
+
         propertyName =  findViewById(R.id.editPropertyName);
         propertyLocation = findViewById(R.id.editLocation);
-        getPropertyPrice = findViewById(R.id.editPrice);
-        bedrooms =  findViewById(R.id.editBedrooms);
-        bathrooms = findViewById(R.id.editBathrooms);
-        parking = findViewById(R.id.editParking);
-        duration = findViewById(R.id.editPaymentDuration);
+        propertyPrice = findViewById(R.id.editPrice);
+        bedroomsNo =  findViewById(R.id.editBedrooms);
+        bathroomsNo = findViewById(R.id.editBathrooms);
+        parkingNo = findViewById(R.id.editParking);
+        payduration = findViewById(R.id.editPaymentDuration);
         uploadBtn  =  findViewById(R.id.editImage);
         imageView =  findViewById(R.id.imageView);
         propertyDescription =  findViewById(R.id.editDescription);
@@ -62,6 +72,62 @@ public class NewPropertyActivity extends AppCompatActivity {
                 openGallery();
             }
         });
+    }
+
+    private void registerProperty(){
+        final String property = propertyName.getText().toString();
+        final String location =  propertyLocation.getText().toString();
+        final String price = propertyPrice.getText().toString();
+        final String  bedrooms = bedroomsNo.getText().toString();
+        final String bathrooms = bathroomsNo.getText().toString();
+        final   String parking =  parkingNo.getText().toString();
+        final String duration =  payduration.getText().toString();
+        final String description =  propertyDescription.getText().toString();
+        final int owner = loged_user;
+
+        if(property.isEmpty()){
+            propertyName.setError("Property name is  required");
+            propertyName.requestFocus();
+            return;
+        }
+        if(location.isEmpty()){
+            propertyLocation.setError("Property location is  required");
+            propertyLocation.requestFocus();
+            return;
+        }
+        if(price.isEmpty()){
+            propertyPrice.setError("Property price is  required");
+            propertyPrice.requestFocus();
+            return;
+        }
+        if(bedrooms.isEmpty()){
+            bedroomsNo.setError("Bedrooms no is  required");
+            bedroomsNo.requestFocus();
+            return;
+        }
+        if(bathrooms.isEmpty()){
+            bedroomsNo.setError("Bathrooms no is  required");
+            bathroomsNo.requestFocus();
+            return;
+        }
+        if(parking.isEmpty()){
+            parkingNo.setError("Parking no is  required");
+            parkingNo.requestFocus();
+            return;
+        }
+        if(duration.isEmpty()){
+            payduration.setError("Payment installment is  required");
+            payduration.requestFocus();
+            return;
+        }
+        if(description.isEmpty()){
+            propertyDescription.setError("Description is  required");
+            propertyDescription.requestFocus();
+            return;
+        }
+
+
+
     }
 
     private  void  openGallery(){
@@ -116,7 +182,7 @@ public class NewPropertyActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.GONE);
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
-                        Toast.makeText(NewPropertyActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(NewPropertyActivity.this, response.toString(), Toast.LENGTH_LONG).show();
 //                        tv.setText("Image Uploaded Successfully!!");
 //                        tv.setTextColor(Color.parseColor("#008000"));
                     } else {

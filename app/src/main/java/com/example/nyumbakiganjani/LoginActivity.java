@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
 
         sharedPreferenceHelper =  new SharedPreferenceHelper(this);
         String loged_user = "";
-        loged_user = sharedPreferenceHelper.getUsername();
+        loged_user = String.valueOf(sharedPreferenceHelper.getId());
         if(loged_user.isEmpty()){
 //            Toast.makeText(LoginActivity.this, "loged_user is null", Toast.LENGTH_SHORT).show();
         }else {
@@ -108,6 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                                 sharedPreferenceHelper.setUsername(jsonObject1.getString("username"));
                                 sharedPreferenceHelper.setPhone(jsonObject1.getString("phone"));
                                 sharedPreferenceHelper.setRole(jsonObject1.getString("role"));
+                                sharedPreferenceHelper.setId(jsonObject1.getInt("id"));
 
                                 if(progressDialog != null  &&  progressDialog.isShowing()){
                                     progressDialog.dismiss();
