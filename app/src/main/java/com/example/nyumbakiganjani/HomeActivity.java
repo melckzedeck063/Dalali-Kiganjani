@@ -1,5 +1,12 @@
 package com.example.nyumbakiganjani;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,18 +15,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.widget.FrameLayout;
-import android.widget.Toast;
-
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -80,6 +76,9 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(new Intent(HomeActivity.this, NewPropertyActivity.class));
                         break;
                     // Add more cases for other menu items
+                    case  R.id.booking_menu:
+                        startActivity(new Intent(HomeActivity.this, BookingsActivity.class));
+                        break;
                     default:
                         throw new IllegalStateException("Unexpected value: " + item.getItemId());
                 }

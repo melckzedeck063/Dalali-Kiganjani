@@ -1,22 +1,25 @@
 package com.example.nyumbakiganjani;
 
 public class Property {
-    String property, price, duration, location,description;
-    int user_id, image,rooms;
+    String property, price, duration, location,description, bathrooms,bedrooms,parking;
+    int user_id;
+    String coverPhoto;
 
     public Property(){
 
     }
 
-    public Property(String property, String price, String duration, String location, String description, int user_id, int image, int rooms) {
+    public Property(String property, String location, String price, String bedrooms, String bathrooms, String parking, String duration, String coverPhoto, String description, int user_id ) {
         this.property = property;
         this.price = price;
         this.duration = duration;
         this.location = location;
         this.description = description;
         this.user_id = user_id;
-        this.image = image;
-        this.rooms = rooms;
+        this.parking = parking;
+        this.bedrooms = bedrooms;
+        this.bathrooms  = bathrooms;
+        this.coverPhoto  = coverPhoto;
     }
 
     public String getProperty() {
@@ -67,19 +70,51 @@ public class Property {
         this.user_id = user_id;
     }
 
-    public int getImage() {
-        return image;
+//    public int getImage() {
+//        return image;
+//    }
+//
+//    public void setImage(int image) {
+//        this.image = image;
+//    }
+
+//    public int getRooms() {
+//        return rooms;
+//    }
+//
+//    public void setRooms(int rooms) {
+//        this.rooms = rooms;
+//    }
+
+    public String getBathrooms() {
+        return bathrooms;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public void setBathrooms(String bathrooms) {
+        this.bathrooms = bathrooms;
     }
 
-    public int getRooms() {
-        return rooms;
+    public String getBedrooms() {
+        return bedrooms;
     }
 
-    public void setRooms(int rooms) {
-        this.rooms = rooms;
+    public void setBedrooms(String bedrooms) {
+        this.bedrooms = bedrooms;
+    }
+
+    public String getCoverPhoto() {
+        return coverPhoto;
+    }
+
+    public void setCoverPhoto(String coverPhoto) {
+        this.coverPhoto = coverPhoto;
+    }
+
+    public String getParking() {
+        return parking;
+    }
+
+    public void setParking(String parking) {
+        this.parking = parking;
     }
 }

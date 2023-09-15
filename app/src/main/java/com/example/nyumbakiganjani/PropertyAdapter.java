@@ -8,10 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -20,6 +20,7 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.MyView
     private LayoutInflater inflater;
     private ArrayList<Property>  propertyArrayList;
     private Context context;
+    private ImageView imageView;
 
     public PropertyAdapter(ArrayList<Property> propertyArrayList, Context context) {
         inflater =  LayoutInflater.from(context);
@@ -42,14 +43,16 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.MyView
         holder.property.setText(propertyArrayList.get(position).getProperty());
         holder.location.setText(propertyArrayList.get(position).getLocation());
         holder.duration.setText(propertyArrayList.get(position).getDuration());
-        holder.image.setImageResource(propertyArrayList.get(position).getImage());
+        Glide.with(context)
+                .load(propertyArrayList.get(position).getCoverPhoto()+".jpg") // Use imageURl here
+                .into(holder.image);
         holder.price.setText(String.valueOf(propertyArrayList.get(position).getPrice()));
-        holder.rooms.setText(String.valueOf(propertyArrayList.get(position).getRooms()));
+        holder.rooms.setText(String.valueOf(propertyArrayList.get(position).getBedrooms()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "You have clicked " + propertyArrayList.get(position).getProperty(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, "You have clicked " + propertyArrayList.get(position).getProperty(), Toast.LENGTH_SHORT).show();
 
                 Intent intent =  new Intent(context, PropertyDetailActivity.class);
 
@@ -57,9 +60,11 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.MyView
                 intent.putExtra("location", propertyArrayList.get(position).getLocation());
                 intent.putExtra("price", propertyArrayList.get(position).getPrice());
                 intent.putExtra("duration", propertyArrayList.get(position).getDuration());
-                intent.putExtra("image", propertyArrayList.get(position).getImage());
-                intent.putExtra("rooms", propertyArrayList.get(position).getRooms());
+                intent.putExtra("rooms", propertyArrayList.get(position).getBedrooms());
+                intent.putExtra("bathroom", propertyArrayList.get(position).getBathrooms());
                 intent.putExtra("description", propertyArrayList.get(position).getDescription());
+                intent.putExtra("image", propertyArrayList.get(position).getCoverPhoto());
+                intent.putExtra("owner_id", propertyArrayList.get(position).getUser_id());
 
                 context.startActivity(intent);
             }

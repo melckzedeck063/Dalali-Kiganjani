@@ -54,6 +54,10 @@ public class NewPropertyActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private String NewPropertyURL = "http://192.168.43.33/Dkiganjani/new_property.php";
     private  String  imageName="";
+    private Uri coverPhoto;
+    private String uploadedImageName = ""; // Initialize with an empty string
+    private Uri uploadedImageUri = null; // Initialize with null
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -157,12 +161,12 @@ public class NewPropertyActivity extends AppCompatActivity {
             propertyDescription.requestFocus();
             return;
         }
-        if(imageName.isEmpty()){
-            Toast.makeText(NewPropertyActivity.this,"image name is empty", Toast.LENGTH_LONG).show();
+        if (uploadedImageName.isEmpty()) {
+            Toast.makeText(NewPropertyActivity.this, "Image name is empty", Toast.LENGTH_LONG).show();
             return;
         }
 
-       stringRequest = new StringRequest(Request.Method.POST, NewPropertyURL,
+        stringRequest = new StringRequest(Request.Method.POST, NewPropertyURL,
                new com.android.volley.Response.Listener<String>() {
                    @Override
                    public void onResponse(String response) {
@@ -216,7 +220,7 @@ public class NewPropertyActivity extends AppCompatActivity {
                params.put("bathrooms",bathrooms);
                params.put("parking",parking);
                params.put("duration", duration);
-               params.put("photo", imageName);
+               params.put("photo", uploadedImageUri.toString());
                params.put("description",description);
                params.put("owner", String.valueOf(owner));
 
@@ -240,7 +244,7 @@ public class NewPropertyActivity extends AppCompatActivity {
              Uri imageUri = data.getData();
 
             imageView.setImageURI(imageUri);
-
+            coverPhoto = imageUri;
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
                 imageView.setImageBitmap(bitmap);
@@ -258,60 +262,57 @@ public class NewPropertyActivity extends AppCompatActivity {
     }
 
 
-    private void uploadImageUsingRetrofit(Bitmap bitmap){
+    private void uploadImageUsingRetrofit(Bitmap bitmap) {
         progressBar.setVisibility(View.VISIBLE);
-//        tv.setText("");
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
         String image = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
         String name = String.valueOf(Calendar.getInstance().getTimeInMillis());
-//        getImageName(name);
-        sharedPreferenceHelper.setImageName(name);
-        if(!imageName.isEmpty()){
-            Toast.makeText(NewPropertyActivity.this, imageName.toString(), Toast.LENGTH_LONG).show();
-        }
+        sharedPreferenceHelper.setImageName(name); // Update the shared preference with the new image name
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(MyImageInterface.IMAGEURL)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
         MyImageInterface myImageInterface = retrofit.create(MyImageInterface.class);
-        Call<String> call = myImageInterface.getImageData(name,image);
+        Call<String> call = myImageInterface.getImageData(name, image);
         call.enqueue(new Callback<String>() {
-            private Call<String> call;
-            private Response<String> response;
-
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 progressBar.setVisibility(View.GONE);
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
-//                        Toast.makeText(NewPropertyActivity.this, imageName.toString(), Toast.LENGTH_LONG).show();
-                        Toast.makeText(NewPropertyActivity.this, "Image uploaded successully", Toast.LENGTH_LONG).show();
-//                        tv.setText("Image Uploaded Successfully!!");
-//                        tv.setTextColor(Color.parseColor("#008000"));
+                        Toast.makeText(NewPropertyActivity.this, "Image uploaded successfully", Toast.LENGTH_LONG).show();
+
+                        // Update the uploaded image name and URI
+                        uploadedImageName = name;
+                        uploadedImageUri = Uri.parse(MyImageInterface.IMAGEURL+"uploads/" + name);
                     } else {
-//                        tv.setText("No response from the server");
-                        Toast.makeText(NewPropertyActivity.this, "Failed to select image!!", Toast.LENGTH_SHORT).show();
-//                        tv.setTextColor(Color.parseColor("#FF0000"));
+                        Toast.makeText(NewPropertyActivity.this, "Failed to upload image", Toast.LENGTH_SHORT).show();
                     }
-                }else{
-//                    tv.setText("Response not successful "+response.toString());
-//                    tv.setTextColor(Color.parseColor("#FF0000"));
-                    Toast.makeText(getApplicationContext(), "Response not successful "+response.toString(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Response not successful " + response.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
-
-
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
-//                tv.setText("Error occurred during upload");
-//                tv.setTextColor(Color.parseColor("#FF0000"));
             }
         });
     }
+
+
+
+
+//    @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                progressBar.setVisibility(View.GONE);
+                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+
+            }
+
+
 
 }

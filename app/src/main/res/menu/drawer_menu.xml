@@ -7,28 +7,28 @@
         android:title="Home"
         android:icon="@drawable/home_icon"
         android:id="@+id/home_menu" />
-    <item
-        android:id="@+id/property_menu"
-        android:title="Property"
-        >
-         <menu>
+
              <item android:id="@+id/new_prop"
                  android:title="New Property"
                  android:icon="@drawable/add_icon" />
-             <item android:icon="@drawable/home_icon"
+             <item android:icon="@drawable/booking_icon"
                  android:id="@+id/all_props"
                  android:title="All Properties" />
-         </menu>
-    </item>
 
     <item
+        android:title="Bookings"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:id="@+id/booking_menu"
+        />
+    <item
         android:title="Users"
-        android:icon="@drawable/home_icon"
+        android:icon="@drawable/users_icon"
         android:id="@+id/user_menu"
         />
+
     <item android:id="@+id/settings_menu"
         android:title="Settings"
-        android:icon="@drawable/home_icon"
+        android:icon="@drawable/setting_icon"
         />
 
 </menu>
