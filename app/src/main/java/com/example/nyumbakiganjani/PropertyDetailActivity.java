@@ -3,6 +3,7 @@ package com.example.nyumbakiganjani;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -56,5 +57,13 @@ public class PropertyDetailActivity extends AppCompatActivity {
         p_price.setText(propertyPrice);
         p_duration.setText(propertyDuration);
         description.setText(propertyDescription);
+
+
+        chatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PropertyDetailActivity.this, ChatActivity.class));
+            }
+        });
     }
 }

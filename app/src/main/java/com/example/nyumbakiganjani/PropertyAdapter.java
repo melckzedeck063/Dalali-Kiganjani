@@ -77,7 +77,7 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.MyView
         return propertyArrayList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView property, price,duration,location,rooms;
         ImageView image;
 
