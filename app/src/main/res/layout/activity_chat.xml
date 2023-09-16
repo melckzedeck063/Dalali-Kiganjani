@@ -11,9 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/messageInputLayout"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="8dp"
         android:padding="16dp"
-        tools:listitem="@layout/chat_bubble"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/chat_bubble" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/messageInputLayout"

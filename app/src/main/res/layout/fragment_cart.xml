@@ -27,7 +27,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/textView"
         android:paddingTop="8dp"
-        tools:listitem="@layout/property"
+        tools:listitem="@layout/conversation_buble"
          android:paddingBottom="8dp"
      />
 

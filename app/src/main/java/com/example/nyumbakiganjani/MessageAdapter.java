@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,11 +36,6 @@ private SharedPreferences sharedPreferences;
         sharedPreferenceHelper = new SharedPreferenceHelper(context);
         currentUser = sharedPreferenceHelper.getId();
 
-        if (currentUser <= 0) {
-            Toast.makeText(context, "User id not found or invalid "+currentUser, Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(context, "User id found and is: " + currentUser, Toast.LENGTH_SHORT).show();
-        }
     }
 
 
@@ -84,7 +78,7 @@ private SharedPreferences sharedPreferences;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             message = itemView.findViewById(R.id.messageText);
-            time = itemView.findViewById(R.id.timestamp);
+            time = itemView.findViewById(R.id.timestamp1);
         }
     }
 

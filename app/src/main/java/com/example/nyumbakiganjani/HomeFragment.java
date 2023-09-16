@@ -46,15 +46,15 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    private void createProperty(){
-        propertyArrayList =  new ArrayList<>();
-
-        propertyAdapter =  new PropertyAdapter(propertyArrayList, getContext());
-        recyclerView.setAdapter(propertyAdapter);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
-        recyclerView.setNestedScrollingEnabled(false);
-    }
+//    private void createProperty(){
+//        propertyArrayList =  new ArrayList<>();
+//
+//        propertyAdapter =  new PropertyAdapter(propertyArrayList, getContext());
+//        recyclerView.setAdapter(propertyAdapter);
+//
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
+//        recyclerView.setNestedScrollingEnabled(false);
+//    }
 
     private void propertyData(){
         stringRequest =  new StringRequest(Request.Method.GET, propertDataUrl,
@@ -86,6 +86,7 @@ public class HomeFragment extends Fragment {
                                 }
 
                                 propertyAdapter = new PropertyAdapter(propertyArrayList, getContext());
+
                                 recyclerView.setAdapter(propertyAdapter);
                                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
                                 recyclerView.setNestedScrollingEnabled(false);
