@@ -32,8 +32,10 @@ public class PropertyDetailActivity extends AppCompatActivity {
         int propertyRooms = intent.getIntExtra("property_rooms", 0);
         String propertyDescription = intent.getStringExtra("description");
         String imageURl = intent.getStringExtra("image")+".jpg"; // Corrected variable name to imageURl
-//        if(!imageURl.isEmpty()){
-//            Toast.makeText(PropertyDetailActivity.this, imageURl.toString(), Toast.LENGTH_LONG).show();
+        int owner_id = intent.getIntExtra("owner_id",0);
+
+//        if(owner_id >=1){
+//            Toast.makeText(PropertyDetailActivity.this, "owner_id : " + owner_id, Toast.LENGTH_LONG).show();
 //        }
 
         image = findViewById(R.id.property_image);
@@ -62,7 +64,11 @@ public class PropertyDetailActivity extends AppCompatActivity {
         chatBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(PropertyDetailActivity.this, ChatActivity.class));
+                Intent intent =  new Intent(PropertyDetailActivity.this,ChatActivity.class);
+
+                intent.putExtra("receiverID", owner_id);
+
+                startActivity(intent);
             }
         });
     }

@@ -10,11 +10,11 @@
         android:id="@+id/messageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textColor="#FFFFFF"
         android:padding="8dp"
         android:text="Hello Meck"
-        android:background="@drawable/sender_bg"
+        android:background="@drawable/receiver_bg"
         android:maxWidth="240dp"
         android:layout_gravity="end" />
 
@@ -22,7 +22,7 @@
         android:id="@+id/timestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="12sp"
+        android:textSize="10sp"
         android:text="09:21 am"
         android:textColor="#888888"
         android:paddingTop="2dp"

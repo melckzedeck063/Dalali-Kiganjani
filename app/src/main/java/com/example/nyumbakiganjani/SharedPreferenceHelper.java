@@ -8,6 +8,8 @@ public class SharedPreferenceHelper {
    private Context context;
    private String firstname = "firstname",lastname="lastname",username = "username",phone="phone", role="role", id="id";
    private String  imageName="imageName";
+   private String userIdKey = "user_id";
+
     public SharedPreferenceHelper(Context context){
         this.sharedPreferences = context.getSharedPreferences("login_session",Context.MODE_PRIVATE);
         this.context = context;
@@ -74,7 +76,7 @@ public class SharedPreferenceHelper {
     }
 
     public void  setId(int id){
-        SharedPreferences.Editor editor =  sharedPreferences.edit();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(this.id, id);
         editor.commit();
     }
