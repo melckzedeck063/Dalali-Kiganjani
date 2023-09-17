@@ -9,23 +9,23 @@
     <!-- Toolbar (if applicable) -->
     <!-- Add any toolbar widgets if needed -->
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/textView"
-        android:textSize="24dp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:text="@string/hello_blank_fragment" />
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:id="@+id/textView"-->
+<!--        android:textSize="24dp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:gravity="center_horizontal"-->
+<!--        android:text="@string/hello_blank_fragment" />-->
 
     <!-- RecyclerView to display property items -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/textView"
+        android:layout_marginTop="8dp"
         android:paddingTop="8dp"
         tools:listitem="@layout/conversation_buble"
          android:paddingBottom="8dp"
