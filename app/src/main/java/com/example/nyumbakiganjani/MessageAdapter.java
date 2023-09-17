@@ -51,8 +51,9 @@ private SharedPreferences sharedPreferences;
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.message.setText(messageModelArrayList.get(position).getMessage());
-        holder.time.setText(messageModelArrayList.get(position).getTime());
-        senderID = messageModelArrayList.get(position).getUser_id();
+        holder.time.setText(messageModelArrayList.get(position).getTime().substring(11,19));
+        senderID = messageModelArrayList.get(position).getReceiver_id();
+//        Toast.makeText(context, "senderID and currentUser" + senderID + " " +currentUser,Toast.LENGTH_LONG).show();
 
         if(currentUser == senderID){
             holder.message.setBackgroundResource(R.drawable.sender_bg);
@@ -62,7 +63,7 @@ private SharedPreferences sharedPreferences;
         else {
             holder.message.setBackgroundResource(R.drawable.receiver_bg);
             holder.message.setGravity(Gravity.START);
-            setLeftMargin(holder.message, 10);
+            setLeftMargin(holder.message, 0);
         }
     }
 

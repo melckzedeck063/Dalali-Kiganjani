@@ -69,8 +69,12 @@ public class CartFragment extends Fragment {
                                 for (int i=0; i<jsonArray.length(); i++){
                                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                                     conversationModelArrayList.add(new ConversationModel(
+                                            jsonObject1.getString("user_firstname"),
+                                            jsonObject1.getString("user_lastname"),
                                             jsonObject1.getString("user1_id"),
-                                            jsonObject1.getString("date_created")
+                                            jsonObject1.getString("date_created"),
+                                            jsonObject1.getInt("conversation_id"),
+                                            jsonObject1.getInt("receiver_id")
 
                                     ));
                                 }

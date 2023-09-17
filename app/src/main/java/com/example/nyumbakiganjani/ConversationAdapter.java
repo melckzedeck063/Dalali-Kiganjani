@@ -2,6 +2,7 @@ package com.example.nyumbakiganjani;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,13 +38,19 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ConversationAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.sender.setText(conversationModelArrayList.get(position).getUserName());
+        holder.sender.setText(conversationModelArrayList.get(position).getUser_firstname() + " " + conversationModelArrayList.get(position).getUser_lastname());
         holder.time.setText(conversationModelArrayList.get(position).getTime().substring(11,16));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "You have clicked " + conversationModelArrayList.get(position).getUserName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "You have clicked " + conversationModelArrayList.get(position).getUser_firstname(), Toast.LENGTH_SHORT).show();
+                Intent intent =  new Intent(context, ChatActivity.class);
+
+                intent.putExtra("conv_id", conversationModelArrayList.get(position).getConversation_id());
+                intent.putExtra("receiverID", conversationModelArrayList.get(position).getReceiver_id());
+
+                context.startActivity(intent);
             }
         });
     }
