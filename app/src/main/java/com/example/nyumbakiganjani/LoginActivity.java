@@ -45,9 +45,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         sharedPreferenceHelper =  new SharedPreferenceHelper(this);
-        String loged_user = "";
-        loged_user = String.valueOf(sharedPreferenceHelper.getId());
-        if(loged_user.isEmpty()){
+        int loged_user;
+        String logedUser = sharedPreferenceHelper.getUsername();
+        loged_user = sharedPreferenceHelper.getId();
+        if(loged_user <= 0 && logedUser.isEmpty()){
 //            Toast.makeText(LoginActivity.this, "loged_user is null", Toast.LENGTH_SHORT).show();
         }else {
 //            Toast.makeText(LoginActivity.this, loged_user.toString(), Toast.LENGTH_SHORT).show();
@@ -95,6 +96,9 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
+                        requestQueue.getCache().clear();
+
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String results = jsonObject.getString("success");

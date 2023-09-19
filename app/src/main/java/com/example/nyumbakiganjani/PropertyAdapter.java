@@ -48,6 +48,7 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.MyView
                 .into(holder.image);
         holder.price.setText(String.valueOf(propertyArrayList.get(position).getPrice()));
         holder.rooms.setText(String.valueOf(propertyArrayList.get(position).getBedrooms()));
+        holder.status.setText(propertyArrayList.get(position).getStatus());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,11 +61,13 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.MyView
                 intent.putExtra("location", propertyArrayList.get(position).getLocation());
                 intent.putExtra("price", propertyArrayList.get(position).getPrice());
                 intent.putExtra("duration", propertyArrayList.get(position).getDuration());
-                intent.putExtra("rooms", propertyArrayList.get(position).getBedrooms());
-                intent.putExtra("bathroom", propertyArrayList.get(position).getBathrooms());
+                intent.putExtra("bedrooms", propertyArrayList.get(position).getBedrooms());
+                intent.putExtra("bathrooms", propertyArrayList.get(position).getBathrooms());
+                intent.putExtra("parking", propertyArrayList.get(position).getParking());
                 intent.putExtra("description", propertyArrayList.get(position).getDescription());
                 intent.putExtra("image", propertyArrayList.get(position).getCoverPhoto());
                 intent.putExtra("owner_id", propertyArrayList.get(position).getUser_id());
+                intent.putExtra("status", propertyArrayList.get(position).getStatus());
 
                 context.startActivity(intent);
             }
@@ -78,7 +81,7 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.MyView
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView property, price,duration,location,rooms;
+        TextView property, price,duration,location,rooms,status;
         ImageView image;
 
         public MyViewHolder(View itemView) {
@@ -89,6 +92,7 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.MyView
             duration =  itemView.findViewById(R.id.pay_duration);
             image = itemView.findViewById(R.id.image_item);
             rooms = itemView.findViewById(R.id.status_text);
+            status = itemView.findViewById(R.id.status_msg);
 
         }
     }

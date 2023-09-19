@@ -1,42 +1,125 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="0dp"
+    tools:ignore="ExtraText">
 
-    <!-- Privacy Title -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Privacy Policy"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="16dp" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/custom_bg"
+        android:elevation="4dp"
+        app:title="@string/app_name"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:title="Settings"
+        android:titleTextColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Privacy Content -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        >
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/privacy_policy_content"
-            android:textSize="16sp" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textPrivacyPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Privacy Policy"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+
+
+            <TextView
+                android:id="@+id/textIntroduction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. Introduction"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/textIntroductionContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome to Nyumba Kiganjani! At Nyumba Kiganjani, we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your information when you use our mobile application. By using Nyumba Kiganjani, you agree to the terms and practices described in this Privacy Policy."
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Other sections such as Information We Collect, How We Use Your Information, Data Security, Your Choices, Updates to this Privacy Policy, Contact Us, and Company Name/Date can be similarly structured -->
+            <TextView
+                android:id="@+id/textIntroduction2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. Data Security"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/textIntroductionContent2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="We take data security seriously and have implemented appropriate measures to protect your information. However, please be aware that no data transmission over the internet can be guaranteed to be completely secure."
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/textIntroduction3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. How We Use Your Information"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/textIntroductionContent3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Providing and improving our services."
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp"/>
+            <TextView
+                android:id="@+id/textIntroductionContent4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Communicating with you regarding app updates, promotions, and important notices."
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/textIntroductionContent5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enhancing user experience and personalizing content."
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp"/>
+            <TextView
+                android:id="@+id/textIntroductionContent6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enhancing user experience and personalizing content."
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp"/>
+
+
+        </LinearLayout>
+
     </ScrollView>
-
-    <!-- Accept Button -->
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Accept"
-        android:textSize="18sp"
-        android:textAllCaps="false"
-        android:backgroundTint="#F64B59"
-        android:textColor="@android:color/white" />
-
 </LinearLayout>

@@ -4,7 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -31,12 +34,16 @@ public class HomeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private PropertyAdapter propertyAdapter;
     private ArrayList<Property> propertyArrayList;
+    private SharedPreferenceHelper sharedPreferenceHelper;
+    Button logoutBtn;
 
     @SuppressLint({"MissingInflatedId", "WrongViewCast"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        sharedPreferenceHelper =  new SharedPreferenceHelper(this);
 
 //        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
 
@@ -48,6 +55,22 @@ public class HomeActivity extends AppCompatActivity {
 
         navigationView =  findViewById(R.id.nav_menu);
         drawerLayout =  findViewById(R.id.drawer_container);
+        logoutBtn = findViewById(R.id.std_logout);
+
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sharedPreferenceHelper.setFirstname(null);
+                sharedPreferenceHelper.setLastname(null);
+                sharedPreferenceHelper.setUsername(null);
+                sharedPreferenceHelper.setPhone(null);
+                sharedPreferenceHelper.setId(-1);
+
+                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                finish();
+
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
 
@@ -66,7 +89,12 @@ public class HomeActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.user_menu:
 //                            drawerLayout.closeDrawer(GravityCompat.START);
-                        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+//                        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                        Toast.makeText(HomeActivity.this, "Not yet implemented", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.home_menu:
+//                            drawerLayout.closeDrawer(GravityCompat.START);
+                        startActivity(new Intent(HomeActivity.this, HomeActivity.class));
                         break;
                     case R.id.settings_menu:
 //                                drawerLayout.closeDrawer(GravityCompat.START);
@@ -76,9 +104,9 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(new Intent(HomeActivity.this, NewPropertyActivity.class));
                         break;
                     // Add more cases for other menu items
-                    case  R.id.booking_menu:
-                        startActivity(new Intent(HomeActivity.this, BookingsActivity.class));
-                        break;
+//                    case  R.id.booking_menu:
+//                        startActivity(new Intent(HomeActivity.this, BookingsActivity.class));
+//                        break;
                     default:
                         throw new IllegalStateException("Unexpected value: " + item.getItemId());
                 }
@@ -109,5 +137,7 @@ public class HomeActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
     }
+
+
 
 }

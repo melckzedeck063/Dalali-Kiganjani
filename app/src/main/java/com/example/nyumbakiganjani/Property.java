@@ -1,7 +1,7 @@
 package com.example.nyumbakiganjani;
 
 public class Property {
-    String property, price, duration, location,description, bathrooms,bedrooms,parking;
+    String property, price, duration, location,description, bathrooms,bedrooms,parking,status;
     int user_id;
     String coverPhoto;
 
@@ -9,7 +9,7 @@ public class Property {
 
     }
 
-    public Property(String property, String location, String price, String bedrooms, String bathrooms, String parking, String duration, String coverPhoto, String description, int user_id ) {
+    public Property(String property, String location, String price, String bedrooms, String bathrooms, String parking, String duration, String coverPhoto, String description,String status, int user_id ) {
         this.property = property;
         this.price = price;
         this.duration = duration;
@@ -20,7 +20,9 @@ public class Property {
         this.bedrooms = bedrooms;
         this.bathrooms  = bathrooms;
         this.coverPhoto  = coverPhoto;
+        this.status = status;
     }
+
 
     public String getProperty() {
         return property;
@@ -116,5 +118,13 @@ public class Property {
 
     public void setParking(String parking) {
         this.parking = parking;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

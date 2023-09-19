@@ -13,7 +13,7 @@
         android:id="@+id/std_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
+        android:layout_marginStart="245dp"
         android:drawableRight="@drawable/out"
         android:backgroundTint="#F64B59"
         android:text="Logout"

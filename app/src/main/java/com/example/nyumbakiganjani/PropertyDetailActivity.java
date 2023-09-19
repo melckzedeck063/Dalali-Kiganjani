@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 
 public class PropertyDetailActivity extends AppCompatActivity {
 
-    TextView p_name, p_location, p_price, duration, description, p_status, p_duration;
+    TextView p_name, p_location, p_price, duration, description, p_status, p_duration,p_bedroom,p_bathroom,p_parking;
     ImageView image, icon;
     Button chatBtn, bookBtn;
 
@@ -29,10 +29,13 @@ public class PropertyDetailActivity extends AppCompatActivity {
         String propertyLocation = intent.getStringExtra("location");
         String propertyDuration = intent.getStringExtra("duration");
         String propertyPrice = intent.getStringExtra("price");
-        int propertyRooms = intent.getIntExtra("property_rooms", 0);
         String propertyDescription = intent.getStringExtra("description");
+        String bedrooms = intent.getStringExtra("bedrooms");
+        String bathrooms = intent.getStringExtra("bathrooms");
+        String parking = intent.getStringExtra("parking");
         String imageURl = intent.getStringExtra("image")+".jpg"; // Corrected variable name to imageURl
         int owner_id = intent.getIntExtra("owner_id",0);
+        String status =  intent.getStringExtra("status");
 
 //        if(owner_id >=1){
 //            Toast.makeText(PropertyDetailActivity.this, "owner_id : " + owner_id, Toast.LENGTH_LONG).show();
@@ -46,8 +49,11 @@ public class PropertyDetailActivity extends AppCompatActivity {
         p_status = findViewById(R.id.property_status);
         p_duration = findViewById(R.id.payment_mode);
         description = findViewById(R.id.description);
+        p_bedroom = findViewById(R.id.bedrooms_text);
+        p_bathroom = findViewById(R.id.bedrooms_text);
+        p_parking = findViewById(R.id.parking_text);
         chatBtn = findViewById(R.id.chat_button);
-        bookBtn = findViewById(R.id.book_button);
+//        bookBtn = findViewById(R.id.book_button);
 
         // Use Glide to load and display the image from the URL
         Glide.with(this)
@@ -59,6 +65,10 @@ public class PropertyDetailActivity extends AppCompatActivity {
         p_price.setText(propertyPrice);
         p_duration.setText(propertyDuration);
         description.setText(propertyDescription);
+        p_status.setText(status);
+        p_bathroom.setText(bathrooms);
+        p_bedroom.setText(bedrooms);
+        p_parking.setText(parking);
 
 
         chatBtn.setOnClickListener(new View.OnClickListener() {
@@ -71,5 +81,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 }

@@ -223,6 +223,7 @@ public class NewPropertyActivity extends AppCompatActivity {
                params.put("photo", uploadedImageUri.toString());
                params.put("description",description);
                params.put("owner", String.valueOf(owner));
+               params.put("status", "Available");
 
                return  params;
            }

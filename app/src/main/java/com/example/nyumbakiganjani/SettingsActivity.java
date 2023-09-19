@@ -47,7 +47,7 @@ public class SettingsActivity extends AppCompatActivity {
                     startActivity(new Intent(SettingsActivity.this, UserProfileActivity.class));
                     break;
                 case "Privacy":
-                    Toast.makeText(this, "You have clicked " + selectedOption, Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(SettingsActivity.this, PrivacyActivity.class));
                     break;
                 case "About" :
                     startActivity(new Intent(SettingsActivity.this, AboutActivity.class));
