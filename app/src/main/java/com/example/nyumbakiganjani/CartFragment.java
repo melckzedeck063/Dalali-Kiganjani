@@ -1,5 +1,6 @@
 package com.example.nyumbakiganjani;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,7 @@ public class CartFragment extends Fragment {
     private StringRequest stringRequest;
     private String convURL="http://192.168.43.33/Dkiganjani/all_coversation.php";
     private int currentUser;
+    private ProgressDialog  progressDialog;
 
 
 
@@ -62,7 +64,14 @@ public class CartFragment extends Fragment {
                         try {
                             JSONObject jsonObject =  new JSONObject(response);
                             String results = jsonObject.getString("success");
+
+                            progressDialog =  ProgressDialog.show(getContext(),"","Loading...", true);
+
                             if(results.equals("1")){
+
+                                if (progressDialog != null && progressDialog.isShowing()){
+                                    progressDialog.dismiss();
+                                }
                                 JSONArray jsonArray = jsonObject.getJSONArray("conversations");
                                 conversationModelArrayList =  new ArrayList<>();
 
@@ -87,6 +96,9 @@ public class CartFragment extends Fragment {
                                 recyclerView.setNestedScrollingEnabled(false);
                             }
                             else  {
+                                if (progressDialog != null && progressDialog.isShowing()){
+                                    progressDialog.dismiss();
+                                }
                                 Toast.makeText(getContext(),jsonObject.getString("message"),Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {

@@ -8,12 +8,12 @@ android:layout_height="wrap_content"
 app:cardCornerRadius="8dp"
 app:cardElevation="4dp"
 app:cardUseCompatPadding="true"
-android:layout_margin="8dp">
+android:layout_margin="6dp">
 
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:padding="5dp">
 
     <!-- Property Image -->
     <ImageView
@@ -102,11 +102,11 @@ android:layout_margin="8dp">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/price_text"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="1dp"
             android:layout_toEndOf="@id/image_item"
-            android:text="Rooms"
-            android:textColor="@color/teal_700"
+            android:text="Available"
+            android:textColor="@color/purple_500"
             android:textSize="14sp" />
     </LinearLayout>
 

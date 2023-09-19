@@ -1,6 +1,8 @@
 package com.example.nyumbakiganjani;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +34,7 @@ public class HomeFragment extends Fragment {
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
     String propertDataUrl="http://192.168.43.33/Dkiganjani/all_properties.php";
+    private ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,15 +49,7 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-//    private void createProperty(){
-//        propertyArrayList =  new ArrayList<>();
-//
-//        propertyAdapter =  new PropertyAdapter(propertyArrayList, getContext());
-//        recyclerView.setAdapter(propertyAdapter);
-//
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
-//        recyclerView.setNestedScrollingEnabled(false);
-//    }
+
 
     private void propertyData(){
         stringRequest =  new StringRequest(Request.Method.GET, propertDataUrl,
@@ -65,31 +60,59 @@ public class HomeFragment extends Fragment {
                             JSONObject jsonResponse = new JSONObject(response);
                             String success = jsonResponse.getString("success");
 
+                            if (progressDialog != null && progressDialog.isShowing()){
+                                progressDialog.dismiss();
+                            }
+
+                            progressDialog = ProgressDialog.show(getContext(), "", "Loading ...", true);
+
                             if (success.equals("1")) {
-                                JSONArray jsonArray = jsonResponse.getJSONArray("properties_data");
-                                propertyArrayList = new ArrayList<>(); // Initialize the ArrayList
 
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                    propertyArrayList.add(new Property(
-                                            jsonObject.getString("property"),
-                                            jsonObject.getString("location"),
-                                            jsonObject.getString("price"),
-                                            jsonObject.getString("bedrooms"),
-                                            jsonObject.getString("bathrooms"),
-                                            jsonObject.getString("parking"),
-                                            jsonObject.getString("duration"),
-                                            jsonObject.getString("photo"),
-                                            jsonObject.getString("description"),
-                                            jsonObject.getInt("owner")
-                                    ));
-                                }
+                                new Handler().postDelayed((Runnable) () -> {
+                                    if (progressDialog != null && progressDialog.isShowing()) {
+                                        progressDialog.dismiss();
+                                    }
+                                    JSONArray jsonArray = null;
+                                    try {
+                                        jsonArray = jsonResponse.getJSONArray("properties_data");
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                    propertyArrayList = new ArrayList<>(); // Initialize the ArrayList
 
-                                propertyAdapter = new PropertyAdapter(propertyArrayList, getContext());
+                                    for (int i = 0; i < jsonArray.length(); i++) {
+                                        JSONObject jsonObject = null;
+                                        try {
+                                            jsonObject = jsonArray.getJSONObject(i);
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                        try {
+                                            propertyArrayList.add(new Property(
+                                                    jsonObject.getString("property"),
+                                                    jsonObject.getString("location"),
+                                                    jsonObject.getString("price"),
+                                                    jsonObject.getString("bedrooms"),
+                                                    jsonObject.getString("bathrooms"),
+                                                    jsonObject.getString("parking"),
+                                                    jsonObject.getString("duration"),
+                                                    jsonObject.getString("photo"),
+                                                    jsonObject.getString("description"),
+                                                    jsonObject.getInt("owner")
+                                            ));
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
 
-                                recyclerView.setAdapter(propertyAdapter);
-                                recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
-                                recyclerView.setNestedScrollingEnabled(false);
+                                    propertyAdapter = new PropertyAdapter(propertyArrayList, getContext());
+
+                                    recyclerView.setAdapter(propertyAdapter);
+                                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+                                    recyclerView.setNestedScrollingEnabled(false);
+
+                                }, 3000);
+
                             } else {
                                 Toast.makeText(getContext(), jsonResponse.getString("message"), Toast.LENGTH_SHORT).show();
                             }

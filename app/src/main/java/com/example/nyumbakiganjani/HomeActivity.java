@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -44,6 +43,7 @@ public class HomeActivity extends AppCompatActivity {
         frameLayout = findViewById(R.id.frame_layout);
         toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar); // Set the Toolbar as the ActionBar
+        getSupportActionBar().setTitle("");
 
 
         navigationView =  findViewById(R.id.nav_menu);
@@ -70,7 +70,7 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.settings_menu:
 //                                drawerLayout.closeDrawer(GravityCompat.START);
-                        Toast.makeText(HomeActivity.this, "SETTINGS MENU CALLED", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
                         break;
                     case R.id.new_prop:
                         startActivity(new Intent(HomeActivity.this, NewPropertyActivity.class));

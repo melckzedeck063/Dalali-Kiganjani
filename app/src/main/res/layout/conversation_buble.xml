@@ -35,7 +35,7 @@
             android:id="@+id/messageText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="This is a text message."
+            android:text="New message."
             android:textSize="14sp"
             android:layout_marginBottom="4dp"
             android:textColor="#555555"/>
