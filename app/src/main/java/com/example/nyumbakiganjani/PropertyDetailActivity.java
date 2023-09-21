@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,6 +26,10 @@ public class PropertyDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_property_detail);
 
+        SharedPreferenceHelper sharedPreferenceHelper =  new SharedPreferenceHelper(this);
+
+        int logedUser = sharedPreferenceHelper.getId();
+
         Intent intent = getIntent();
         String propertyName = intent.getStringExtra("property");
         String propertyLocation = intent.getStringExtra("location");
@@ -36,6 +42,11 @@ public class PropertyDetailActivity extends AppCompatActivity {
         String imageURl = intent.getStringExtra("image")+".jpg"; // Corrected variable name to imageURl
         int owner_id = intent.getIntExtra("owner_id",0);
         String status =  intent.getStringExtra("status");
+
+        Toolbar toolbar = findViewById(R.id.toolbar_item);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(propertyName);
+
 
 //        if(owner_id >=1){
 //            Toast.makeText(PropertyDetailActivity.this, "owner_id : " + owner_id, Toast.LENGTH_LONG).show();
@@ -74,11 +85,16 @@ public class PropertyDetailActivity extends AppCompatActivity {
         chatBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =  new Intent(PropertyDetailActivity.this,ChatActivity.class);
+                if(logedUser == owner_id){
+                    Toast.makeText(PropertyDetailActivity.this, "You can't chat with youself", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent intent = new Intent(PropertyDetailActivity.this, ChatActivity.class);
 
-                intent.putExtra("receiverID", owner_id);
+                    intent.putExtra("receiverID", owner_id);
 
-                startActivity(intent);
+                    startActivity(intent);
+                }
             }
         });
 

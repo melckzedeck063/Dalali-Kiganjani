@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +31,7 @@ public class HomeFragment extends Fragment {
     private ArrayList<Property> propertyArrayList;
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
+    private SearchView searchView;
     String propertDataUrl="http://192.168.43.33/Dkiganjani/all_properties.php";
 
 
@@ -39,11 +40,39 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view  = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView =  view.findViewById(R.id.recycler_view2);
+        searchView = view.findViewById(R.id.search_view);
+
+        propertyArrayList = new ArrayList<>();
+
+        // Initialize the propertyAdapter
+        propertyAdapter = new PropertyAdapter(propertyArrayList, getContext());
+        recyclerView.setAdapter(propertyAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
         recyclerView.setNestedScrollingEnabled(false);
 
 //        createProperty();
         propertyData();
+
+        // Set up SearchView listener
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Handle search query submission (if needed)
+                performSearch(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Filter the property list based on user input
+                if (propertyAdapter != null) {
+                    propertyAdapter.filter(newText);
+                }
+                return true;
+            }
+        });
+
+
         return view;
     }
 
@@ -106,5 +135,12 @@ public class HomeFragment extends Fragment {
     }
 
 
+    private void performSearch(String query) {
+        // Filter the property list based on the search query
+        propertyAdapter.filter(query);
+
+        // Optionally, you can clear the focus from the SearchView
+        searchView.clearFocus();
+    }
 
 }

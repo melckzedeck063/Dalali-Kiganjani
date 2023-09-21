@@ -15,16 +15,16 @@
 <!--                 android:id="@+id/all_props"-->
 <!--                 android:title="All Properties" />-->
 
-<!--    <item-->
-<!--        android:title="Bookings"-->
-<!--        android:icon="@drawable/ic_baseline_shopping_cart_24"-->
-<!--        android:id="@+id/booking_menu"-->
-<!--        />-->
     <item
-        android:title="Users"
-        android:icon="@drawable/users_icon"
-        android:id="@+id/user_menu"
+        android:title="My Properties"
+        android:icon="@drawable/icon_list"
+        android:id="@+id/myprop_menu"
         />
+<!--    <item-->
+<!--        android:title="Users"-->
+<!--        android:icon="@drawable/users_icon"-->
+<!--        android:id="@+id/user_menu"-->
+<!--        />-->
 
     <item android:id="@+id/settings_menu"
         android:title="Settings"

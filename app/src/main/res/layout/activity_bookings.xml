@@ -6,15 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".BookingsActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:text="Booking List"
-        android:textColor="@color/teal_700"
-        android:textSize="28dp"
-        android:textStyle="bold"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_header"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/custom_bg"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:title="Settings"
+        android:titleTextColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="1dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:padding="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/recycler_bg"
+        android:paddingHorizontal="5dp"
+        tools:listitem="@layout/property"
+        android:paddingTop="10dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

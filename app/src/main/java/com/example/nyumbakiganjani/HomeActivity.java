@@ -7,7 +7,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -87,10 +86,10 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.user_menu:
+                    case R.id.myprop_menu:
 //                            drawerLayout.closeDrawer(GravityCompat.START);
-//                        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
-                        Toast.makeText(HomeActivity.this, "Not yet implemented", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(HomeActivity.this, BookingsActivity.class));
+//                        Toast.makeText(HomeActivity.this, "Not yet implemented", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.home_menu:
 //                            drawerLayout.closeDrawer(GravityCompat.START);

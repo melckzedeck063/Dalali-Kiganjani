@@ -14,7 +14,7 @@
         android:background="@drawable/custom_bg"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:title="Settings"
+        android:title="My Profile"
         android:titleTextColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/last_name">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <ImageView
             android:id="@+id/cover_photo"
@@ -45,22 +45,10 @@
             tools:layout_editor_absoluteY="192dp" />
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/last_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="80dp"
-        android:text="User Profile"
-        android:textColor="@color/teal_700"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <EditText
+        android:id="@+id/user_fname"
         android:layout_width="320dp"
         android:layout_height="43dp"
         android:layout_marginTop="28dp"
@@ -79,7 +67,8 @@
         android:layout_height="43dp"
         android:layout_marginTop="88dp"
         android:background="@drawable/custom_input"
-        android:hint="firstname"
+        android:hint="lastname"
+        android:id="@+id/user_lname"
         android:paddingStart="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/teal_700"
@@ -94,7 +83,8 @@
         android:layout_height="43dp"
         android:layout_marginTop="156dp"
         android:background="@drawable/custom_input"
-        android:hint="firstname"
+        android:hint="email"
+        android:id="@+id/user_email"
         android:paddingStart="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/teal_700"
@@ -105,12 +95,12 @@
 
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/user_phone"
         android:layout_width="320dp"
         android:layout_height="43dp"
         android:layout_marginTop="216dp"
         android:background="@drawable/custom_input"
-        android:hint="firstname"
+        android:hint="Phone"
         android:paddingStart="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/teal_700"
@@ -119,24 +109,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
-    <Button
-        android:layout_width="197dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/custom_btn"
-        android:backgroundTint="@color/teal_700"
-        android:text="Update"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+<!--    <Button-->
+<!--        android:layout_width="197dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        android:background="@drawable/custom_btn"-->
+<!--        android:backgroundTint="@color/teal_700"-->
+<!--        android:text="Update"-->
+<!--        android:id="@+id/update_btn"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="20dp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/user_phone" />-->
 
 
-    <!-- Description -->
-    <!--    </LinearLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

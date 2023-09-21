@@ -19,12 +19,14 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.MyView
 
     private LayoutInflater inflater;
     private ArrayList<Property>  propertyArrayList;
+    private ArrayList<Property> filteredPropertyList;
     private Context context;
     private ImageView imageView;
 
     public PropertyAdapter(ArrayList<Property> propertyArrayList, Context context) {
         inflater =  LayoutInflater.from(context);
         this.propertyArrayList = propertyArrayList;
+        this.filteredPropertyList = new ArrayList<>(propertyArrayList);
         this.context = context;
     }
 
@@ -96,4 +98,21 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.MyView
 
         }
     }
+
+    public void filter(String query) {
+        propertyArrayList.clear();
+        if (query.isEmpty()) {
+            propertyArrayList.addAll(filteredPropertyList);
+        } else {
+            query = query.toLowerCase();
+            for (Property property : filteredPropertyList) {
+                if (property.getProperty().toLowerCase().contains(query) ||
+                        property.getLocation().toLowerCase().contains(query)) {
+                    propertyArrayList.add(property);
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
+
 }
