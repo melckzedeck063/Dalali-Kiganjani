@@ -75,7 +75,6 @@ private SharedPreferences sharedPreferences;
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView user_id, receiver_id,message,time;
 
-
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             message = itemView.findViewById(R.id.messageText);

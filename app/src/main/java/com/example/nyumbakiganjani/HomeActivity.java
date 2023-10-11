@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -35,6 +36,7 @@ public class HomeActivity extends AppCompatActivity {
     private ArrayList<Property> propertyArrayList;
     private SharedPreferenceHelper sharedPreferenceHelper;
     Button logoutBtn;
+    TextView fullName,userEmail;
 
     @SuppressLint({"MissingInflatedId", "WrongViewCast"})
     @Override
@@ -50,6 +52,7 @@ public class HomeActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar); // Set the Toolbar as the ActionBar
         getSupportActionBar().setTitle("");
+
 
 
         navigationView =  findViewById(R.id.nav_menu);
