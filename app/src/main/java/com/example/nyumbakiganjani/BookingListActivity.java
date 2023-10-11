@@ -1,6 +1,7 @@
 package com.example.nyumbakiganjani;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +12,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,7 +27,7 @@ public class BookingListActivity extends AppCompatActivity {
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
     private RecyclerView recyclerView;
-    private String booksURL="http://192.168.43.33/Dkiganjani/my_bookings";
+    private String booksURL="http://192.168.43.33/Dkiganjani/my_bookings.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,7 @@ public class BookingListActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String results =  jsonObject.getString("success");
-                            if(results.equals("1"));{
+                            if(results.equals("1")){
                                 JSONArray jsonArray =  jsonObject.getJSONArray("bookings_data");
                                 bookingModelArrayList =  new ArrayList<>();
 
@@ -71,6 +73,9 @@ public class BookingListActivity extends AppCompatActivity {
                                 recyclerView.setLayoutManager(new LinearLayoutManager(BookingListActivity.this,LinearLayoutManager.VERTICAL,false));
                                 recyclerView.setNestedScrollingEnabled(false);
                             }
+                            else {
+                                Toast.makeText(BookingListActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -80,10 +85,12 @@ public class BookingListActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Toast.makeText(BookingListActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }
         );
+        requestQueue = Volley.newRequestQueue(BookingListActivity.this);
+        requestQueue.add(stringRequest);
     }
 
 

@@ -20,11 +20,11 @@
         android:icon="@drawable/icon_list"
         android:id="@+id/myprop_menu"
         />
-<!--    <item-->
-<!--        android:title="Users"-->
-<!--        android:icon="@drawable/users_icon"-->
-<!--        android:id="@+id/user_menu"-->
-<!--        />-->
+    <item
+        android:title="Bookings"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:id="@+id/bookings_menu"
+        />
 
     <item android:id="@+id/settings_menu"
         android:title="Settings"

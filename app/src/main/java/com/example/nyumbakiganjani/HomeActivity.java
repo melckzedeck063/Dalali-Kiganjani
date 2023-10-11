@@ -105,6 +105,9 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.new_prop:
                         startActivity(new Intent(HomeActivity.this, NewPropertyActivity.class));
                         break;
+                    case R.id.bookings_menu:
+                        startActivity(new Intent(HomeActivity.this, BookingListActivity.class));
+                        break;
                     // Add more cases for other menu items
 //                    case  R.id.booking_menu:
 //                        startActivity(new Intent(HomeActivity.this, BookingsActivity.class));
