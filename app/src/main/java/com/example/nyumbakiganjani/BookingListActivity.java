@@ -3,6 +3,7 @@ package com.example.nyumbakiganjani;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +20,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BookingListActivity extends AppCompatActivity {
 
@@ -28,6 +31,7 @@ public class BookingListActivity extends AppCompatActivity {
     private StringRequest stringRequest;
     private RecyclerView recyclerView;
     private String booksURL="http://192.168.43.33/Dkiganjani/my_bookings.php";
+    private int user_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +39,22 @@ public class BookingListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_booking_list);
 
         recyclerView  =  findViewById(R.id.booking_recycler);
+        SharedPreferenceHelper sharedPreferenceHelper = new SharedPreferenceHelper(this);
+        user_id = sharedPreferenceHelper.getId();
+
+        recyclerView = findViewById(R.id.booking_recycler);
+        bookingModelArrayList = new ArrayList<>(); // Initialize the ArrayList here
+        bookingAdapter = new BookingAdapter(bookingModelArrayList, BookingListActivity.this);
+        recyclerView.setAdapter(bookingAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(BookingListActivity.this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setNestedScrollingEnabled(false);
 
         getBookings();
 
     }
 
     private  void getBookings(){
-        stringRequest =  new StringRequest(Request.Method.GET, booksURL,
+        stringRequest =  new StringRequest(Request.Method.POST, booksURL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -63,11 +76,11 @@ public class BookingListActivity extends AppCompatActivity {
                                             jsonObject1.getInt("property_id"),
                                             jsonObject1.getInt("book_id"),
                                             jsonObject1.getInt("user_id"),
-                                            jsonObject1.getInt("ownner_id")
+                                            jsonObject1.getInt("owner_id")
                                     ));
                                 }
 
-                                bookingAdapter =   new BookingAdapter(bookingModelArrayList,BookingListActivity.this);
+                                bookingAdapter =   new BookingAdapter(bookingModelArrayList, BookingListActivity.this);
                                 recyclerView.setAdapter(bookingAdapter);
 
                                 recyclerView.setLayoutManager(new LinearLayoutManager(BookingListActivity.this,LinearLayoutManager.VERTICAL,false));
@@ -88,9 +101,21 @@ public class BookingListActivity extends AppCompatActivity {
                         Toast.makeText(BookingListActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }
-        );
+        ){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("user_id", String.valueOf(user_id));
+
+                return params;
+            }
+        };
         requestQueue = Volley.newRequestQueue(BookingListActivity.this);
         requestQueue.add(stringRequest);
+
+        bookingAdapter.notifyDataSetChanged();
+        Toast.makeText(BookingListActivity.this, "function called with id:  " + user_id, Toast.LENGTH_SHORT).show();
     }
 
 

@@ -14,12 +14,12 @@ import java.util.ArrayList;
 
 public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHolder> {
     private LayoutInflater inflater;
-    private ArrayList<BookingModel> bookingAdapterArrayList;
     private Context context;
+    private ArrayList<BookingModel> bookingModelArrayList;
 
-    public BookingAdapter(ArrayList<BookingModel> bookingAdapterArrayList, Context context) {
+    public BookingAdapter(ArrayList<BookingModel> bookingModelArrayList, Context context) {
         inflater = LayoutInflater.from(context);
-        this.bookingAdapterArrayList = bookingAdapterArrayList;
+        this.bookingModelArrayList = bookingModelArrayList;
         this.context = context;
     }
 
@@ -34,15 +34,15 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull BookingAdapter.ViewHolder holder, int position) {
-        holder.property.setText(bookingAdapterArrayList.get(position).getProperty_name());
-        holder.userName.setText(bookingAdapterArrayList.get(position).getUser());
-        holder.status.setText(bookingAdapterArrayList.get(position).getBook_status());
-        holder.dateBooked.setText(bookingAdapterArrayList.get(position).getDate_booked());
+        holder.property.setText(bookingModelArrayList.get(position).getProperty_name());
+        holder.userName.setText(bookingModelArrayList.get(position).getUser());
+        holder.status.setText(bookingModelArrayList.get(position).getBook_status());
+        holder.dateBooked.setText(bookingModelArrayList.get(position).getDate_booked());
     }
 
     @Override
     public int getItemCount() {
-        return bookingAdapterArrayList.size();
+        return bookingModelArrayList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
