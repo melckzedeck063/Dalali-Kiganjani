@@ -105,7 +105,8 @@ public class HomeFragment extends Fragment {
                                                     jsonObject.getString("photo"),
                                                     jsonObject.getString("description"),
                                                     jsonObject.getString("status"),
-                                                    jsonObject.getInt("owner")
+                                                    jsonObject.getInt("owner"),
+                                                    jsonObject.getInt("property_id")
                                             ));
 
                                     }

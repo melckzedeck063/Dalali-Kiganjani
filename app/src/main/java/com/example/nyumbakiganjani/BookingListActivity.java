@@ -115,7 +115,7 @@ public class BookingListActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
         bookingAdapter.notifyDataSetChanged();
-        Toast.makeText(BookingListActivity.this, "function called with id:  " + user_id, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(BookingListActivity.this, "function called with id:  " + user_id, Toast.LENGTH_SHORT).show();
     }
 
 

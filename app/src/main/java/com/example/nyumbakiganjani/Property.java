@@ -2,14 +2,14 @@ package com.example.nyumbakiganjani;
 
 public class Property {
     String property, price, duration, location,description, bathrooms,bedrooms,parking,status;
-    int user_id;
+    int user_id,property_ID;
     String coverPhoto;
 
     public Property(){
 
     }
 
-    public Property(String property, String location, String price, String bedrooms, String bathrooms, String parking, String duration, String coverPhoto, String description,String status, int user_id ) {
+    public Property(String property, String location, String price, String bedrooms, String bathrooms, String parking, String duration, String coverPhoto, String description,String status, int user_id , int property_ID) {
         this.property = property;
         this.price = price;
         this.duration = duration;
@@ -21,6 +21,7 @@ public class Property {
         this.bathrooms  = bathrooms;
         this.coverPhoto  = coverPhoto;
         this.status = status;
+        this.property_ID = property_ID;
     }
 
 
@@ -72,7 +73,14 @@ public class Property {
         this.user_id = user_id;
     }
 
-//    public int getImage() {
+    public int getProperty_ID() {
+        return property_ID;
+    }
+
+    public void setProperty_ID(int property_ID) {
+        this.property_ID = property_ID;
+    }
+    //    public int getImage() {
 //        return image;
 //    }
 //

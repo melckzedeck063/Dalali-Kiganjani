@@ -269,35 +269,48 @@
 
     <!-- Chat Button -->
 
-
-    <Button
-        android:id="@+id/chat_button"
-        android:layout_width="204dp"
-        android:layout_height="40dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/payment_cont"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/custom_btn"
-        android:backgroundTint="@color/teal_700"
-        android:drawableStart="@drawable/chat_icon"
-        android:paddingStart="15dp"
-        android:text="Chat with Owner"
-        android:textColor="@color/white"
-        android:textStyle="bold" />
+        android:layout_marginTop="18dp">
 
-    <!-- Book Button -->
-<!--        <Button-->
-<!--            android:id="@+id/book_button"-->
-<!--            android:layout_width="132dp"-->
-<!--            android:layout_height="41dp"-->
-<!--            android:layout_marginStart="50dp"-->
-<!--            android:layout_marginTop="2dp"-->
-<!--            android:background="@drawable/custom_btn"-->
-<!--            android:backgroundTint="#2845E3"-->
-<!--            android:text="Book Now"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textStyle="bold" />-->
-<!--    </LinearLayout>-->
+        <Button
+            android:id="@+id/book_button"
+            android:layout_width="132dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/custom_btn"
+            android:backgroundTint="#2845E3"
+            android:text="Book Now"
+            android:paddingRight="10dp"
+            android:drawableEnd="@drawable/ic_baseline_shopping_cart_24"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <Button
+            android:id="@+id/chat_button"
+            android:layout_width="204dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="28dp"
+            android:background="@drawable/custom_btn"
+            android:backgroundTint="@color/teal_700"
+            android:drawableStart="@drawable/chat_icon"
+            android:paddingStart="15dp"
+            android:text="Chat with Owner"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </RelativeLayout>

@@ -70,6 +70,7 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.MyView
                 intent.putExtra("image", propertyArrayList.get(position).getCoverPhoto());
                 intent.putExtra("owner_id", propertyArrayList.get(position).getUser_id());
                 intent.putExtra("status", propertyArrayList.get(position).getStatus());
+                intent.putExtra("property_id", propertyArrayList.get(position).getProperty_ID());
 
                 context.startActivity(intent);
             }

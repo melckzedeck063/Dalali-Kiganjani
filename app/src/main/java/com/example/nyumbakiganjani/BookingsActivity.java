@@ -91,7 +91,8 @@ public class BookingsActivity extends AppCompatActivity {
                                             jsonObject.getString("photo"),
                                             jsonObject.getString("description"),
                                             jsonObject.getString("status"),
-                                            jsonObject.getInt("owner")
+                                            jsonObject.getInt("owner"),
+                                            jsonObject.getInt("property_id")
                                     ));
 
                                 }
